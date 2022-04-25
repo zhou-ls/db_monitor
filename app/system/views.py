@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.shortcuts import HttpResponse
 from django.contrib.auth.backends import ModelBackend
-from APP.system.models import Users
+from app.system.models import Users
 from django.db.models import Q
 from .models import AlertLog, AlarmConf, AlarmInfo
 from rest_framework import permissions
@@ -16,7 +16,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from utils.tools import mysql_django_query
 from rest_framework.renderers import JSONRenderer
-from APP.system.tasks import oracle_rac_setup, oracle_rac_onenode_setup, oracle_onenode_setup, mysql_setup
+from app.system.tasks import oracle_rac_setup, oracle_rac_onenode_setup, oracle_onenode_setup, mysql_setup
 
 logger = logging.getLogger('system')
 

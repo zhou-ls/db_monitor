@@ -1,5 +1,5 @@
 from django.urls import path
-from APP.assets import views
+from app.assets import views
 
 app_name = "assets"
 

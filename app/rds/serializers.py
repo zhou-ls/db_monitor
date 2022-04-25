@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from APP.rds.models import RedisStat, RedisStatHis
+from app.rds.models import RedisStat, RedisStatHis
 
 
 class RedisStatSerializer(serializers.ModelSerializer):

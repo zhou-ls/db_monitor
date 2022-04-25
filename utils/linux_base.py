@@ -28,7 +28,7 @@ class LinuxBase(object):
             return ssh_client, sftp_client
         except Exception as e:
             print("linux connect error:{}".format(e))
-            return (None, None)
+            return None, None
 
     # read all of file content
     def readfile(self, file, seek=0):
@@ -42,12 +42,12 @@ class LinuxBase(object):
                     line = remote_file.readline()
                     if not line:
                         break
-                    yield (line, 0)
+                    yield line, 0
 
-            yield (b'', remote_file.tell())
+            yield b'', remote_file.tell()
         except Exception as e:
             print("read file error")
-            return (None, None)
+            return None, None
 
     # read last n of file content
     def readfile_n(self, file, num):
@@ -56,7 +56,7 @@ class LinuxBase(object):
         std_in, std_out, std_err = ssh_client.exec_command(cmd)
         for line in std_out.read().splitlines():
             if line != '':
-                yield (line, 0)
+                yield line, 0
 
     def exec_command(self, command, ssh_client=None):
         try:

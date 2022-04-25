@@ -1,5 +1,5 @@
 from django.urls import path
-from APP.mysql import views
+from app.mysql import views
 
 app_name = "mysql"
 

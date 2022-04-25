@@ -13,7 +13,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 
-from APP.oracle.tasks import create_oracle_report
+from app.oracle.tasks import create_oracle_report
 from utils.django_tools import NoPagination
 from utils.oracle_base import OracleBase
 from utils.tools import *

@@ -1,5 +1,5 @@
 from django.urls import path
-from APP.rds import views
+from app.rds import views
 
 app_name = "rds"
 

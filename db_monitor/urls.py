@@ -21,10 +21,10 @@ from rest_framework.authtoken import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth', views.obtain_auth_token),
-    path('system/', include('APP.system.urls', namespace='system')),
-    path('assets/', include('APP.assets.urls', namespace='assets')),
-    path('oracle/', include('APP.oracle.urls', namespace='oracle')),
-    path('mysql/', include('APP.mysql.urls', namespace='mysql')),
-    path('rds/', include('APP.rds.urls', namespace='rds')),
-    path('linux/', include('APP.linux.urls', namespace='linux')),
+    path('system/', include('app.system.urls', namespace='system')),
+    path('assets/', include('app.assets.urls', namespace='assets')),
+    path('oracle/', include('app.oracle.urls', namespace='oracle')),
+    path('mysql/', include('app.mysql.urls', namespace='mysql')),
+    path('rds/', include('app.rds.urls', namespace='rds')),
+    path('linux/', include('app.linux.urls', namespace='linux')),
 ]

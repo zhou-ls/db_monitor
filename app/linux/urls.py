@@ -1,5 +1,5 @@
 from django.urls import path
-from APP.linux import views
+from app.linux import views
 
 app_name = "linux"
 

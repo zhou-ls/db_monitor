@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'APP.system.apps.SystemConfig',
+    'app.system.apps.SystemConfig',
     'bootstrap3',
     'django_celery_results',
     'django_celery_beat',
@@ -45,11 +45,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'rest_framework_swagger',
-    'APP.assets.apps.AssetsConfig',
-    'APP.oracle.apps.OracleConfig',
-    'APP.linux.apps.LinuxConfig',
-    'APP.mysql.apps.MysqlConfig',
-    'APP.rds.apps.RdsConfig',
+    'app.assets.apps.AssetsConfig',
+    'app.oracle.apps.OracleConfig',
+    'app.linux.apps.LinuxConfig',
+    'app.mysql.apps.MysqlConfig',
+    'app.rds.apps.RdsConfig',
 ]
 
 GRAPHENE = {
@@ -89,7 +89,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'db_monitor.wsgi.application'
 AUTH_USER_MODEL = 'system.users'
-AUTHENTICATION_BACKENDS = ('APP.system.views.CustomBackend',)  ## 重新登录验证,增加邮箱名字也可以用作登录
+AUTHENTICATION_BACKENDS = ('app.system.views.CustomBackend',)  ## 重新登录验证,增加邮箱名字也可以用作登录
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -237,7 +237,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:8080',
 )
-MIDDLEWARE_CLASSES = ('APP.system.views.DisableCSRFCheck',)
+MIDDLEWARE_CLASSES = ('app.system.views.DisableCSRFCheck',)
 
 # 配置ASGI
 ASGI_APPLICATION = "db_monitor.routing.application"

@@ -1,6 +1,6 @@
 from django.urls import path
-from APP.system.views import UserInfo, UserLogout, Menu
-from APP.system import views
+from app.system.views import UserInfo, UserLogout, Menu
+from app.system import views
 
 app_name = "system"
 

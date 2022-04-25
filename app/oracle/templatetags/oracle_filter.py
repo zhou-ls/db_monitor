@@ -1,5 +1,5 @@
 from django import template
-from APP.assets.models import OracleList
+from app.assets.models import OracleList
 
 register = template.Library()
 

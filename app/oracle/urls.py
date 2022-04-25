@@ -1,5 +1,5 @@
 from django.urls import path
-from APP.oracle import views
+from app.oracle import views
 
 app_name = "oracle"
 
