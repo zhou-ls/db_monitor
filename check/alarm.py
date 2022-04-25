@@ -1,9 +1,8 @@
 # encoding:utf-8
-
-from utils.tools import mysql_exec, mysql_query, now
 import check as checklog
-from utils.send_email import my_send_email
 from utils.send_ding_msg import send_ding_msg
+from utils.send_email import my_send_email
+from utils.tools import mysql_exec, mysql_query, now
 
 
 def check_alarm():

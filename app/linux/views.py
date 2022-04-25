@@ -10,16 +10,21 @@ from .serializers import *
 
 
 class ApiLinuxStat(generics.ListCreateAPIView):
-    def get_queryset(self):
-        tags = self.request.query_params.get('tags', None)
-        return LinuxStat.objects.filter(status=0, tags=tags).order_by('status')
-
     serializer_class = LinuxStatSerializer
     filter_backends = (DjangoFilterBackend,)
     permission_classes = (permissions.DjangoModelPermissions,)
 
+    def get_queryset(self):
+        tags = self.request.query_params.get('tags', None)
+        return LinuxStat.objects.filter(status=0, tags=tags).order_by('status')
+
 
 class ApiLinuxStatHis(generics.ListCreateAPIView):
+    serializer_class = LinuxStatHisSerializer
+    pagination_class = NoPagination
+    filter_backends = (DjangoFilterBackend,)
+    permission_classes = (permissions.DjangoModelPermissions,)
+
     def get_queryset(self):
         tags = self.request.query_params.get('tags', None)
         start_time = self.request.query_params.get('start_time', None)
@@ -34,11 +39,6 @@ class ApiLinuxStatHis(generics.ListCreateAPIView):
         return LinuxStatHis.objects.filter(tags=tags, check_time__gte=start_time, check_time__lte=end_time).order_by(
             'check_time')
 
-    serializer_class = LinuxStatHisSerializer
-    pagination_class = NoPagination
-    filter_backends = (DjangoFilterBackend,)
-    permission_classes = (permissions.DjangoModelPermissions,)
-
 
 # all instance
 class ApiLinuxStatList(generics.ListCreateAPIView):
@@ -51,16 +51,21 @@ class ApiLinuxStatList(generics.ListCreateAPIView):
 
 
 class ApiLinuxDisk(generics.ListCreateAPIView):
-    def get_queryset(self):
-        tags = self.request.query_params.get('tags', None)
-        return LinuxDisk.objects.filter(tags=tags).order_by('-used_percent')
-
     serializer_class = LinuxDiskSerializer
     filter_backends = (DjangoFilterBackend,)
     permission_classes = (permissions.DjangoModelPermissions,)
 
+    def get_queryset(self):
+        tags = self.request.query_params.get('tags', None)
+        return LinuxDisk.objects.filter(tags=tags).order_by('-used_percent')
+
 
 class ApiLinuxDiskHis(generics.ListCreateAPIView):
+    serializer_class = LinuxDiskSerializer
+    pagination_class = NoPagination
+    filter_backends = (DjangoFilterBackend,)
+    permission_classes = (permissions.DjangoModelPermissions,)
+
     def get_queryset(self):
         tags = self.request.query_params.get('tags', None)
         start_time = self.request.query_params.get('start_time', None)
@@ -75,23 +80,23 @@ class ApiLinuxDiskHis(generics.ListCreateAPIView):
         return LinuxDiskHis.objects.filter(tags=tags, check_time__gte=start_time, check_time__lte=end_time).order_by(
             'check_time')
 
-    serializer_class = LinuxDiskSerializer
-    pagination_class = NoPagination
-    filter_backends = (DjangoFilterBackend,)
-    permission_classes = (permissions.DjangoModelPermissions,)
-
 
 class ApiLinuxIoStat(generics.ListCreateAPIView):
-    def get_queryset(self):
-        tags = self.request.query_params.get('tags', None)
-        return LinuxIoStat.objects.filter(tags=tags)
-
     serializer_class = LinuxIoStatSerializer
     filter_backends = (DjangoFilterBackend,)
     permission_classes = (permissions.DjangoModelPermissions,)
 
+    def get_queryset(self):
+        tags = self.request.query_params.get('tags', None)
+        return LinuxIoStat.objects.filter(tags=tags)
+
 
 class ApiLinuxIoStatHis(generics.ListCreateAPIView):
+    serializer_class = LinuxIoStatSerializer
+    pagination_class = NoPagination
+    filter_backends = (DjangoFilterBackend,)
+    permission_classes = (permissions.DjangoModelPermissions,)
+
     def get_queryset(self):
         tags = self.request.query_params.get('tags', None)
         start_time = self.request.query_params.get('start_time', None)
@@ -105,8 +110,3 @@ class ApiLinuxIoStatHis(generics.ListCreateAPIView):
             start_time = last_day()
         return LinuxIoStatHis.objects.filter(tags=tags, check_time__gte=start_time, check_time__lte=end_time).order_by(
             'check_time')
-
-    serializer_class = LinuxIoStatSerializer
-    pagination_class = NoPagination
-    filter_backends = (DjangoFilterBackend,)
-    permission_classes = (permissions.DjangoModelPermissions,)

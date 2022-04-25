@@ -4,7 +4,7 @@ from check.check_oracle import check_oracle
 from check.check_linux import check_linux
 from check.check_mysql import check_mysql
 from check import check_redis
-from check import check_alarm
+from check.alarm import check_alarm
 from utils.tools import mysql_query
 from multiprocessing import Process
 
